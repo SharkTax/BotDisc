@@ -3,22 +3,23 @@ import styles from'./App.css';
 import Axios from "axios"
 
 function App() {
-  const [catFact, setCatFact] = useState("")
+  const [name, setName] = useState("")
+  const [predictAge, setPredictAge] = useState(null)
 
-  const fecthCatFact = () =>{
-    Axios.get("https://catfact.ninja/fact").then((data)=>{
-      setCatFact(data.data.fact)
+  const fecthData = ()=>{
+    Axios.get(`https://api.agify.io/?name=${name}`).then((res)=>{
+      setPredictAge(res.data)
     })
   }
-  useEffect(()=>{
-
-  },[])
-
 
   return (
     <div className="App">
-      <button onClick={fecthCatFact}>click here cat</button>
-      <p>{catFact}</p>
+      <input placeholder='like: victor' onChange={(e)=>{
+        setName(e.target.value)
+      }}/>
+      <button onClick={fecthData}>tell the age</button>
+      
+      <h1>age is: {predictAge?.age}</h1>
     </div>
   );
 }
