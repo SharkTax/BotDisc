@@ -10,9 +10,6 @@ function App() {
       setCatFact(data.data.fact)
     })
   }
-  useEffect(()=>{
-
-  },[])
 
 
   return (
