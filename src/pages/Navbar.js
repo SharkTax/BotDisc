@@ -5,8 +5,8 @@ export const Navbar = ()=>{
    <div>
     NAVBAR
         <Link to="/"> Home </Link>
-        <Link to="/profile"> Profile </Link>
         <Link to="/contact"> Contact </Link>
+        <Link to="/form">Form</Link>
     </div>
    )
 }
